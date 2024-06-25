@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kaleidoscope</title>
+    <link rel="stylesheet" href="museumstyle.css">
+</head>
+<body>
+    
+    <!-- Navigation bar start -->
+    <nav>
+        <div class="nav-container">
+            <h5><a href="Museum.html" class="title">MUSEUM</a></h5>
+            <input type="checkbox" id="menu-toggle">
+            <label for="menu-toggle" class="menu-icon">&#9776;</label>
+            <ul>
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="Museum.html">MUSEUM</a></li>
+                <li><a href="Gala.html">GALA</a></li>
+                <li><a href="Register.html">REGISTER</a></li>
+                <li class="has-dropdown">
+                    <a href="#more">MORE &#9662;</a>
+                    <ul class="dropdown">
+                        <li><a href="Volunteer.html">VOLUNTEER</a></li>
+                        <li><a href="History.html">HISTORY</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <!-- Navigation bar end -->
+
+    <br>
+    
+    <!-- Carousel section -->
+    <div class="carousel">
+        <button class="carousel__button carousel__button--left" id="prevButton">&#9664;</button>
+        <div class="carousel__images">
+            <img src="Image/ann mcferran.jpeg" alt="Image 1">
+            <img src="Image/ann mcferran.jpeg" alt="Image 2">
+            <img src="Image/ann mcferran.jpeg" alt="Image 3">
+            <!-- Add more images as needed -->
+        </div>
+        <button class="carousel__button carousel__button--right" id="nextButton">&#9654;</button>
+    </div>
+
+    <!-- About section -->
+    <div class="text-container">
+        <div class="section">
+            <div class="para-title">About Kaleidoscope</div>
+            <div class="paragraphs">
+                <p>Our museum is a one-of-a-kind center where we invite people from all over the world to learn about and celebrate the accomplishments of people of color in the business field. Our museum consists of five floors, each with a different theme. The <span style="color: #456FE8">first</span> floor consists of the lobby, the gift shop, and an IMAX theater. The <span style="color: #456FE8">second</span> floor features Asian American and Pacific Islander people in the business field. The <span style="color: #456FE8">third</span> floor features black people in business, and the <span style="color: #456FE8">fourth</span> floor features Hispanic people in business. Finally, the <span style="color: #456FE8">fifth</span> floor features Indigenous people in business. On each floor, there are staff members who lead activities for people of all ages. These include designing posters for marketing purposes and testing out products created by the entrepreneurs featured in the museum. There are also IMAX shows running from 11:00 a.m. to 5:00 p.m. on the stories of the people honored in the museum. Visitors have the opportunity to come to our museum and choose which groups of people they want to learn more about. In short, our museum allows for different ethnic groups to be honored and celebrated for their accomplishments in the business field.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="contact-section">
+                <div style="margin-right: 40px;"><h6>Contact Us</h6></div>
+                <ul class="contact-info">
+                    <li><i class="fa fa-clock"></i> Office Hours: Mon-Fri 9am-5pm</li>
+                    <li><i class="fa fa-phone"></i> Phone: (908) 999-9800</li>
+                    <li><i class="fa fa-map-marker-alt"></i> Address: 1776 Raritan Rd, Scotch Plains, NJ</li>
+                    <li><i class="fa fa-envelope"></i> Email: kaleidemuseum@gmail.com</li>
+                </ul>
+            </div>
+            <div class="newsletter-section">
+                <h6>Subscribe to Our Newsletter</h6>
+                <form action="#" method="post">
+                    <input type="email" name="newsletter-email" placeholder="Your Email" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Ensure DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            window.onscroll = function() {scrollReveal()};
+            
+            function scrollReveal() {
+                var scrollPosition = window.pageYOffset;
+                var revealElement = document.querySelector('.scroll-reveal');
+                var revealPosition = revealElement.getBoundingClientRect().top + window.pageYOffset;
+                
+                if (scrollPosition > revealPosition - window.innerHeight + 200) {
+                    revealElement.classList.add('revealed');
+                }
+            }
+        });
+
+        document.addEventListener("DOMContentLoaded", function() {
+            const carouselImages = document.querySelector(".carousel__images");
+            const images = document.querySelectorAll(".carousel__images img");
+            const prevButton = document.getElementById("prevButton");
+            const nextButton = document.getElementById("nextButton");
+
+            let index = 0;
+
+            function showImage(index) {
+                const offset = -index * 100; // 100% width per image
+                carouselImages.style.transform = `translateX(${offset}%)`;
+            }
+
+            prevButton.addEventListener("click", function() {
+                index = (index > 0) ? index - 1 : images.length - 1;
+                showImage(index);
+            });
+
+            nextButton.addEventListener("click", function() {
+                index = (index < images.length - 1) ? index + 1 : 0;
+                showImage(index);
+            });
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kaleidoscope</title>
+    <link rel="stylesheet" href="temp.css">
+</head>
+<body>
+    
+    <!--navigation bar start -->
+    <nav>
+        <h5><a href="Gala.html" class="title">GALA</a></h5>
+        <input type="checkbox" id="menu-toggle">
+        <label for="menu-toggle" class="menu-icon">&#9776;</label>
+        <ul>
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="Museum.html">MUSEUM</a></li>
+            <li><a href="Gala.html">GALA</a></li>
+            <li><a href="Register.html">REGISTER</a></li>
+            <li>
+                <a href="#more">MORE &#9662;</a>
+                <ul class="dropdown">
+                    <li><a href="Volunteer.html">VOLUNTEER</a></li>
+                    <li><a href="History.html">HISTORY</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+    <!--navigation bar end -->
+
+    <div class="container">
+        <div class="content">
+            <div class="section">
+                <div class="paragraphs">
+                    <div class="h1">Activities</div>
+                    <p>The Empowerment Gala will provide guests with a variety of entertainment, including a photo op, dinner accompanied by a number of performances, a silent auction, and a raffle which will be open throughout the night.</p>
+                </div>
+                <div class="image left">
+                    <img src="Image/silent auction.JPG" alt="Silent auction image description">
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="paragraphs">
+                    <div class="h2">Food</div>
+                    <p>Experience a global culinary journey at our gala, showcasing dishes from many different cultures around the world. Guests will be able to get out of their comfort zone and explore tastes unfamiliar to them (or maybe find flavors that taste like home). Deliciously made to delight your palate, celebrate cultural diversity with us.</p>
+                </div>
+                <div class="image right">
+                    <img src="Image/foodddd.png" alt="Food image description">
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="paragraphs">
+                    <div class="h1">Activities</div>
+                    <p>The Empowerment Gala will provide guests with a variety of entertainment, including a photo op, dinner accompanied by a number of performances, a silent auction, and a raffle which will be open throughout the night.</p>
+                </div>
+                <div class="image left">
+                    <img src="Image/silent auction.JPG" alt="Silent auction image description">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-container">
+            <div class="contact-section">
+                <div style="margin-right: 40px;"><h6>Contact Us</h6></div>
+                <ul class="contact-info">
+                    <li><i class="fa fa-clock"></i> Office Hours: Mon-Fri 9am-5pm</li>
+                    <li><i class="fa fa-phone"></i> Phone: (908) 999-9800</li>
+                    <li><i class="fa fa-map-marker-alt"></i> Address: 1776 Raritan Rd, Scotch Plains, NJ</li>
+                    <li><i class="fa fa-envelope"></i> Email: kaleidemuseum@gmail.com</li>
+                </ul>
+            </div>
+            <div class="newsletter-section">
+                <h6>Subscribe to Our Newsletter</h6>
+                <form action="#" method="post">
+                    <input type="email" name="newsletter-email" placeholder="Your Email" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Ensure DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            window.onscroll = function() {scrollReveal()};
+            
+            function scrollReveal() {
+                var scrollPosition = window.pageYOffset;
+                var revealElement = document.querySelector('.scroll-reveal');
+                var revealPosition = revealElement.getBoundingClientRect().top + window.pageYOffset;
+                
+                if (scrollPosition > revealPosition - window.innerHeight + 200) {
+                    revealElement.classList.add('revealed');
+                }
+            }
+        });
+    </script>
+
+</body>
+</html>

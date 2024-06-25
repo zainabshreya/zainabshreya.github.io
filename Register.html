@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kaleidoscope</title>
+    <link rel="stylesheet" href="registerstyle.css">
+</head>
+<body>
+    <nav>
+        <h5><a href="Register.html" class="title">REGISTER</a></h5>
+        <input type="checkbox" id="menu-toggle">
+        <label for="menu-toggle" class="menu-icon">&#9776;</label>
+        <ul>
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="Museum.html">MUSEUM</a></li>
+            <li><a href="Gala.html">GALA</a></li>
+            <li><a href="Register.html">REGISTER</a></li>
+            <li>
+                <a href="#more">MORE &#9662;</a>
+                <ul class="dropdown">
+                    <li><a href="Volunteer.html">VOLUNTEER</a></li>
+                    <li><a href="History.html">HISTORY</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+
+    <main>
+        <section class="scroll-reveal">
+            <h3>Help Us Reach Our Goal!</h3>
+            <div class="progress-bar-container">
+                <div class="progress-bar">
+                    <div class="progress-bar-fill"></div>
+                </div>
+                <div class="progress-text">$0 raised of $500,000 goal</div>
+            </div>
+        </section>
+
+        <section class="form-section scroll-reveal form-container">
+            <h4>Donate Now</h4>
+            <form id="donation-form">
+                <input type="number" name="amount" placeholder="Donation Amount" required min="1">
+                <input type="email" name="email" placeholder="Your Email" required>
+                <input type="text" name="card-number" placeholder="Credit Card Number" required pattern="\d{16}" title="Credit card number must be 16 digits">
+                <input type="text" name="card-expiration" placeholder="Expiration Date (MM/YYYY)" required pattern="(0[1-9]|1[0-2])\/[0-9]{4}" title="Expiration date must be in MM/YYYY format">
+                <button type="submit">Donate</button>
+            </form>
+        </section>
+
+        <section class="scroll-reveal countdown-container">
+            <h4>Event Countdown</h4>
+            <div id="countdown-timer"></div>
+        </section>
+
+        <section class="form-section scroll-reveal form-container">
+            <h4>Buy Event Tickets</h4>
+            <form id="ticket-form">
+                <input type="number" name="tickets" placeholder="Number of Tickets" required min="1">
+                <p id="ticket-total-cost"></p>
+                <input type="email" name="email" placeholder="Your Email" required>
+                <input type="text" name="card-number" placeholder="Credit Card Number" required pattern="\d{16}" title="Credit card number must be 16 digits">
+                <input type="text" name="card-expiration" placeholder="Expiration Date (MM/YYYY)" required pattern="(0[1-9]|1[0-2])\/[0-9]{4}" title="Expiration date must be in MM/YYYY format">
+                <button type="submit">Buy Tickets</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <div class="contact-section">
+                <div style="margin-right: 40px;"><h6>Contact Us</h6></div>
+                <ul class="contact-info">
+                    <li><i class="fa fa-clock"></i> Office Hours: Mon-Fri 9am-5pm</li>
+                    <li><i class="fa fa-phone"></i> Phone: (908) 999-9800</li>
+                    <li><i class="fa fa-map-marker-alt"></i> Address: 1776 Raritan Rd, Scotch Plains, NJ</li>
+                    <li><i class="fa fa-envelope"></i> Email: kaleidemuseum@gmail.com</li>
+                </ul>
+            </div>
+            <div class="newsletter-section">
+                <h6>Subscribe to Our Newsletter</h6>
+                <form action="#" method="post">
+                    <input type="email" name="newsletter-email" placeholder="Your Email" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // Countdown timer script
+        const countDownDate = new Date("July 3, 2024 00:00:00").getTime();
+
+        const countdownTimer = setInterval(function() {
+            const now = new Date().getTime();
+            const distance = countDownDate - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("countdown-timer").innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+
+            if (distance < 0) {
+                clearInterval(countdownTimer);
+                document.getElementById("countdown-timer").innerHTML = "EXPIRED";
+            }
+        }, 1000);
+    </script>
+
+    <script>
+        // Donation progress bar script with localStorage
+        document.addEventListener('DOMContentLoaded', function() {
+            const progressBarFill = document.querySelector('.progress-bar-fill');
+            const progressText = document.querySelector('.progress-text');
+            const goalAmount = 500000; // Goal amount in dollars
+            const donationForm = document.getElementById('donation-form');
+            const ticketForm = document.getElementById('ticket-form');
+
+            // Retrieve initial raised amount from localStorage
+            let raisedAmount = parseFloat(localStorage.getItem('raisedAmount')) || 0;
+
+            // Function to update progress bar and text
+            function updateProgressBar(amount) {
+                raisedAmount += amount;
+                localStorage.setItem('raisedAmount', raisedAmount); // Store updated amount in localStorage
+                const percentage = (raisedAmount / goalAmount) * 100;
+                progressBarFill.style.width = percentage + '%';
+                progressText.textContent = `$${raisedAmount.toLocaleString()} raised of $${goalAmount.toLocaleString()} goal`;
+            }
+
+            // Initial update with the amount from localStorage
+            updateProgressBar(0); // This will just refresh the UI with the current amount
+
+            // Handle donation form submission
+            donationForm.addEventListener('submit', function(event) {
+                event.preventDefault();
+                const amount = parseFloat(donationForm.querySelector('input[name="amount"]').value);
+                if (!isNaN(amount) && amount > 0) {
+                    updateProgressBar(amount);
+                    donationForm.reset();
+                } else {
+                    alert('Please enter a valid donation amount.');
+                }
+            });
+
+            // Handle ticket purchase form submission
+            ticketForm.addEventListener('submit', function(event) {
+                event.preventDefault();
+                const tickets = parseInt(ticketForm.querySelector('input[name="tickets"]').value);
+                if (!isNaN(tickets) && tickets > 0) {
+                    const ticketPrice = 200; // Price per ticket
+                    const amount = tickets * ticketPrice;
+                    updateProgressBar(amount);
+                    ticketForm.reset();
+                    document.getElementById('ticket-total-cost').textContent = ''; // Clear the total cost text
+                } else {
+                    alert('Please enter a valid number of tickets.');
+                }
+            });
+
+            // Update ticket total cost dynamically
+            const ticketsInput = ticketForm.querySelector('input[name="tickets"]');
+            const totalCostElement = document.getElementById('ticket-total-cost');
+
+            ticketsInput.addEventListener('input', function() {
+                const tickets = parseInt(ticketsInput.value);
+                const ticketPrice = 200; // Price per ticket
+                if (!isNaN(tickets) && tickets > 0) {
+                    const totalCost = tickets * ticketPrice;
+                    totalCostElement.textContent = `Total Cost: $${totalCost.toLocaleString()}`;
+                } else {
+                    totalCostElement.textContent = '';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

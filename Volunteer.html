@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kaleidoscope</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<!--navigation bar start -->
+<nav>
+    <h5><a href="Volunteer.html" class="title">VOLUNTEER</a></h5>
+    <input type="checkbox" id="menu-toggle">
+    <label for="menu-toggle" class="menu-icon">&#9776;</label>
+    <ul>
+        <li><a href="index.html">HOME</a></li>
+        <li><a href="Museum.html">MUSEUM</a></li>
+        <li><a href="Gala.html">GALA</a></li>
+        <li><a href="Register.html">REGISTER</a></li>
+        <li>
+            <a href="#more">MORE &#9662;</a>
+            <ul class="dropdown">
+                <li><a href="Volunteer.html">VOLUNTEER</a></li>
+                <li><a href="History.html">HISTORY</a></li>
+            </ul>
+        </li>
+    </ul>
+</nav>
+<!--navigation bar end -->
+<div id="googleForm">
+    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSe8Y98isan93ZSO9oKG2J0HKLXWxQCxbqhDMeuw7fNl8siqeg/viewform?embedded=true" width="640" height="1930" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+</div>
+
+<footer>
+    <div class="footer-container">
+        <div class="contact-section">
+            <div style="margin-right: 40px;"><h6>Contact Us</h6></div>
+            <ul class="contact-info">
+                <li><i class="fa fa-clock"></i> Office Hours: Mon-Fri 9am-5pm</li>
+                <li><i class="fa fa-phone"></i> Phone: (908) 999-9800</li>
+                <li><i class="fa fa-map-marker-alt"></i> Address: 1776 Raritan Rd, Scotch Plains, NJ</li>
+                <li><i class="fa fa-envelope"></i> Email: kaleidemuseum@gmail.com</li>
+            </ul>
+        </div>
+        <div class="newsletter-section">
+            <h6>Subscribe to Our Newsletter</h6>
+            <form action="#" method="post">
+                <input type="email" name="newsletter-email" placeholder="Your Email" required>
+                <button type="submit">Subscribe</button>
+            </form>
+        </div>
+    </div>
+</footer>
+
+<script>
+        window.onload = function() {
+        window.scrollTo(0, 0);
+    };
+</script>
+
+<script>
+    // Ensure DOM is loaded
+    document.addEventListener('DOMContentLoaded', function() {
+        window.onscroll = function() {scrollReveal()};
+        
+        function scrollReveal() {
+            var scrollPosition = window.pageYOffset;
+            var revealElement = document.querySelector('.scroll-reveal');
+            var revealPosition = revealElement.getBoundingClientRect().top + window.pageYOffset;
+            
+            if (scrollPosition > revealPosition - window.innerHeight + 200) {
+                revealElement.classList.add('revealed');
+            }
+        }
+    });
+</script>
+
+</body>
+</html>

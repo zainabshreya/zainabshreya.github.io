@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kaleidoscope</title>
+    <link rel="stylesheet" href="styletest.css">
+</head>
+<body>
+<!--navigation bar start -->
+<nav>
+    <h5><a href="#home" class="title">Kaleidoscope</a></h5>
+    <input type="checkbox" id="menu-toggle">
+    <label for="menu-toggle" class="menu-icon">&#9776;</label>
+    <ul>
+        <li><a href="#home">HOME</a></li>
+        <li><a href="#about">MUSEUM</a></li>
+        <li><a href="#services">GALA</a></li>
+        <li><a href="#home">REGISTER</a></li>
+        <li>
+            <a href="#more">More &#9662;</a>
+            <ul class="dropdown">
+                <li><a href="#contact">VOLUNTEER</a></li>
+                <li><a href="#faq">HISTORY</a></li>
+            </ul>
+        </li>
+    </ul>
+</nav>
+<!--navigation bar end -->
+
+<img width="400" src="Image/Web Design Logo1.png" alt="Under Construction">
+
+<div class="image-container">
+    <div class="scroll-reveal" style="text-align: center;">
+        <img width="400" src="Image/Web Design Logo1.png" alt="Under Construction">
+    </div>
+</div>
+
+<main>
+    <section class="gallery">
+        <div class="image-grid">
+            <div class="image-item">
+                <a href="page1.html"><img src="Image/ann mcferran.jpeg" alt="Image 1"></a>
+                <h3>Image 1</h3>
+            </div>
+            <div class="image-item">
+                <a href="page2.html"><img src="Image/ann mcferran.jpeg" alt="Image 2"></a>
+                <h3>Image 2</h3>
+            </div>
+            <div class="image-item">
+                <a href="page3.html"><img src="Image/ann mcferran.jpeg" alt="Image 3"></a>
+                <h3>Image 3</h3>
+            </div>
+            <div class="image-item">
+                <a href="page4.html"><img src="Image/ann mcferran.jpeg" alt="Image 4"></a>
+                <h3>Image 4</h3>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <div class="footer-container">
+        <div class="contact-section">
+            <div style="margin-right: 40px;"><h6>Contact Us</h6></div>
+            <ul class="contact-info">
+                <li><i class="fa fa-clock"></i> Office Hours: Mon-Fri 9am-5pm</li>
+                <li><i class="fa fa-phone"></i> Phone: (908) 999-9800</li>
+                <li><i class="fa fa-map-marker-alt"></i> Address: 1776 Raritan Rd, Scotch Plains, NJ</li>
+                <li><i class="fa fa-envelope"></i> Email: kaleidemuseum@gmail.com</li>
+            </ul>
+        </div>
+        <div class="newsletter-section">
+            <h6>Subscribe to Our Newsletter</h6>
+            <form action="#" method="post">
+                <input type="email" name="newsletter-email" placeholder="Your Email" required>
+                <button type="submit">Subscribe</button>
+            </form>
+        </div>
+    </div>
+</footer>
+
+
+<script>
+    // Ensure DOM is loaded
+    document.addEventListener('DOMContentLoaded', function() {
+        window.onscroll = function() {scrollReveal()};
+        
+        function scrollReveal() {
+            var scrollPosition = window.pageYOffset;
+            var revealElement = document.querySelector('.scroll-reveal');
+            var revealPosition = revealElement.getBoundingClientRect().top + window.pageYOffset;
+            
+            if (scrollPosition > revealPosition - window.innerHeight + 200) {
+                revealElement.classList.add('revealed');
+            }
+        }
+    });
+</script>
+
+
+
+</body>
+</html>

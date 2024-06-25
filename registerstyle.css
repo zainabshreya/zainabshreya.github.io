@@ -1,0 +1,326 @@
+        /* General styles */
+        @font-face {
+            font-family: "Montserrat", sans-serif;
+            src: url(Fonts/Montserrat-VariableFont_wght.ttf) format("truetype");
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        body, h3, h4, header, nav, main, aside, footer {
+            font-family: "Montserrat", sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            color: white;
+            overflow-x: hidden;
+            background-image: linear-gradient(#000333, white);
+        }
+
+        h2, h3, h4 {
+            margin: 10px 0 30px 0;
+            letter-spacing: 10px;
+            font-size: 20px;
+            text-align: center;
+        }
+
+        h6 {
+            margin: 10px 0 40px 0;
+            letter-spacing: 10px;
+            font-size: 20px;
+        }
+
+        h5 {
+            margin: 10px 0 10px 0;
+            letter-spacing: 5px;
+            font-size: 15px;
+        }
+
+        li {
+            margin: 10px 0 10px 0;
+            letter-spacing: 5px;
+            font-size: 13px;
+            text-align: justify;
+        }
+
+        /* Navigation bar */
+        nav {
+            background-color: rgba(51, 51, 51, 0.9); /* Semi-transparent */
+            padding: 2px 50px; /* Reduced padding */
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky; /* Sticky position */
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav .title {
+            font-family: "Montserrat", sans-serif;
+            font-size: 20px; /* Reduced font size */
+            color: #d5d5d5; /* Dark gray text color */
+            text-decoration: none;
+            padding: 5px 0px; /* Reduced padding */
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        nav ul li {
+            position: relative;
+        }
+
+        nav ul li a {
+            color: #d5d5d5; /* Dark gray text color */
+            text-decoration: none;
+            padding: 5px 10px; /* Reduced padding */
+            display: block;
+            white-space: nowrap;
+            transition: color 0.3s; /* Smooth color transition */
+        }
+
+        nav ul li a:hover {
+            color: #ffffff; /* White text color on hover */
+        }
+
+        nav ul li ul.dropdown {
+            display: none;
+            position: absolute;
+            background-color: rgba(51, 51, 51, 0.9); /* Semi-transparent dropdown */
+            min-width: 160px;
+            margin: 0;
+            padding: 0;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1000;
+            overflow: hidden; /* Prevent scrollbar */
+        }
+
+        nav ul li ul.dropdown li a {
+            padding: 8px 10px; /* Reduced padding */
+            color: #d5d5d5; /* Light gray text color */
+        }
+
+        nav ul li ul.dropdown li a:hover {
+            background-color: #ffffff; /* Light background */
+            color: black; /* Black text color on hover */
+        }
+
+        nav ul li:hover ul.dropdown {
+            display: block;
+        }
+
+        nav input[type="checkbox"] {
+            display: none;
+        }
+
+        .menu-icon {
+            display: none;
+            font-size: 24px;
+            color: white;
+            cursor: pointer;
+            padding: 10px; /* Reduced padding */
+        }
+
+        /* Footer */
+        footer {
+            background-image: linear-gradient(to bottom right,#000333, white);
+            color: white;
+            padding: 2em 0;
+        }
+
+        .footer-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: flex-start;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .footer-container div {
+            flex: 1;
+            margin: 10px;
+            min-width: 250px; /* Ensure sections don't shrink too much */
+        }
+
+        .contact-section h3, .form-section h3, .newsletter-section h3 {
+            margin-bottom: 1em;
+        }
+
+        .contact-info {
+            list-style: none;
+            padding: 0;
+            font-size: 14px;
+        }
+
+        .contact-info li {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .contact-info i {
+            margin-right: 10px;
+            font-size: 18px;
+        }
+
+        .form-section form,
+        .newsletter-section form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-section form input,
+        .form-section form textarea,
+        .newsletter-section form input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: none;
+            border-radius: 5px;
+            box-sizing: border-box;
+            color: black; /* Black text color for input */
+        }
+
+        .form-section form button,
+        .newsletter-section form button {
+            padding: 10px;
+            background-color: #000333;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-family: "Montserrat", sans-serif;
+        }
+
+        .form-section form button:hover,
+        .newsletter-section form button:hover {
+            background-color: #494c6c;
+        }
+
+        /* Donation and ticket forms */
+        .form-container {
+            background-color: rgba(51, 51, 51, 0.8); /* Semi-transparent */
+            padding: 20px;
+            margin: 20px auto;
+            border-radius: 10px;
+            max-width: 600px; /* Max width for form containers */
+            text-align: center; /* Centered text */
+        }
+
+        /* Progress bar styles */
+        .progress-bar-container {
+            max-width: 600px;
+            margin: 20px auto;
+            text-align: center; /* Centered text */
+        }
+
+        .progress-bar {
+            width: 100%;
+            background-color: #eee;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .progress-bar-fill {
+            width: 0%;
+            height: 30px;
+            background-color: #C5DEFF;
+            text-align: center;
+            line-height: 30px;
+            color: white;
+        }
+
+        .progress-text {
+            padding: 10px 0;
+            text-align: center;
+            color: white;
+            font-weight: bold;
+        }
+
+        /* Countdown styles */
+        #countdown-timer {
+            font-size: 20px;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        /* Countdown container */
+        .countdown-container {
+            background-color: rgba(51, 51, 51, 0.8); /* Semi-transparent */
+            padding: 20px;
+            margin: 20px auto;
+            border-radius: 10px;
+            max-width: 600px; /* Max width for countdown container */
+            text-align: center; /* Centered text */
+        }
+
+        /* Responsive styles */
+        @media (max-width: 600px) {
+            nav ul {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                text-align: left;
+            }
+
+            nav input[type="checkbox"]:checked + label + ul {
+                display: flex;
+            }
+
+            .menu-icon {
+                display: block;
+            }
+
+            nav ul li ul.dropdown {
+                position: static;
+                box-shadow: none;
+            }
+
+            nav ul li:hover ul.dropdown {
+                display: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav ul li {
+                display: block;
+                text-align: center;
+            }
+
+            main {
+                flex-direction: column;
+            }
+
+            aside {
+                order: -1;
+            }
+
+            footer {
+                position: static;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header {
+                font-size: 1.5em;
+            }
+
+            nav ul li a {
+                padding: 10px;
+            }
+
+            footer {
+                font-size: 0.8em;
+            }
+        }
+.contact-info i {
+    margin-right: 10px;
+    font-size: 18px;
+}
