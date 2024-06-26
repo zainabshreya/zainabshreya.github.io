@@ -37,7 +37,6 @@ h5 {
     font-size: 15px;
 }
 
-
 li {
     margin: 10px 0 10px 0;
     letter-spacing: 5px;
@@ -114,12 +113,11 @@ nav ul li ul.dropdown li a {
 }
 
 nav ul li ul.dropdown li a:hover {
-    background-color: #ffffff; /* Light uh.p background */
-    color: black; /* White text color on hover */
+    background-color: #575757; /* Slightly darker background on hover */
 }
 
 nav ul li:hover ul.dropdown {
-    display: block;
+    display: block; /* Show dropdown on hover */
 }
 
 nav input[type="checkbox"] {
@@ -127,11 +125,10 @@ nav input[type="checkbox"] {
 }
 
 .menu-icon {
-    display: none;
-    font-size: 24px;
-    color: white;
+    display: none; /* Hide by default */
+    font-size: 30px;
+    color: #d5d5d5;
     cursor: pointer;
-    padding: 10px; /* Reduced padding */
 }
 
 /* Image and gallery styles */
@@ -188,7 +185,7 @@ nav input[type="checkbox"] {
 }
 
 footer {
-    background-image: linear-gradient(to bottom right,#000333, white);
+    background-image: linear-gradient(to bottom right, #000333, white);
     color: white;
     padding: 2em 0;
 }
@@ -209,7 +206,7 @@ footer {
     min-width: 250px; /* Ensure sections don't shrink too much */
 }
 
-.contact-section h3, .form-section h3, .newsletter-section h3 {
+.contact-section h6, .newsletter-section h6 {
     margin-bottom: 1em;
 }
 
@@ -230,14 +227,11 @@ footer {
     font-size: 18px;
 }
 
-.form-section form,
 .newsletter-section form {
     display: flex;
     flex-direction: column;
 }
 
-.form-section form input,
-.form-section form textarea,
 .newsletter-section form input {
     width: 100%;
     padding: 10px;
@@ -247,7 +241,6 @@ footer {
     box-sizing: border-box;
 }
 
-.form-section form button,
 .newsletter-section form button {
     padding: 10px;
     background-color: #000333;
@@ -258,19 +251,12 @@ footer {
     font-family: "Montserrat", sans-serif;
 }
 
-.form-section form button:hover,
 .newsletter-section form button:hover {
     background-color: #494c6c;
 }
 
-#googleForm {
-    /*margin-left: auto;/*
-    /*margin-right: auto;*/
-    text-align: center;
-}
-
 /* Responsive styles */
-@media (max-width: 600px) {
+@media (max-width: 768px) {
     nav ul {
         display: none;
         flex-direction: column;
@@ -302,28 +288,9 @@ footer {
     .image-item {
         width: calc(50% - 20px); /* Two columns on small screens */
     }
-}
 
-@media (max-width: 768px) {
-    nav ul li {
-        display: block;
-        text-align: center;
-    }
-
-    main {
-        flex-direction: column;
-    }
-
-    aside {
-        order: -1;
-    }
-
-    footer {
-        position: static;
-    }
-
-    .image-item {
-        width: calc(50% - 20px); /* Two columns on small screens */
+    .more .dropdown.show {
+        display: block; /* Show dropdown on click */
     }
 }
 

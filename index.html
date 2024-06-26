@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<!--navigation bar start -->
+<!-- Navigation bar start -->
 <nav>
     <h5><a href="index.html" class="title">Kaleidoscope</a></h5>
     <input type="checkbox" id="menu-toggle">
@@ -17,20 +17,16 @@
         <li><a href="Museum.html">MUSEUM</a></li>
         <li><a href="Gala.html">GALA</a></li>
         <li><a href="Register.html">REGISTER</a></li>
-        <li>
-            <li><a href="#more">MORE &#9662;</a>
-                <ul class="dropdown">
-                    <li><a href="Volunteer.html">VOLUNTEER</a></li>
-                    <li><a href="History.html">HISTORY</a></li>
-                </ul>
-            </li>
+        <li class="more">
+            <a href="#" id="more-btn">MORE &#9662;</a>
+            <ul class="dropdown">
+                <li><a href="Volunteer.html">VOLUNTEER</a></li>
+                <li><a href="History.html">HISTORY</a></li>
+            </ul>
         </li>
     </ul>
 </nav>
-
-
-
-<!--navigation bar end -->
+<!-- Navigation bar end -->
 
 <img src="Image/logo.png" alt="Under Construction">
 
@@ -59,24 +55,16 @@
     </section>
     <section class="gallery">
         <div class="image-grid">
-                <div class="image-item">
-                    <a href="History.html#Janice"><img src="Image/Janice Bryant Howroyd home.jpg" alt="Image 4"></a>
-                    <h3>Janice Bryant Howroyd</h3>
-                </div>
-                <div class="image-item">
-                    <a href="History.html#Vic"><img src="Image/Victoria Vasques home.jpg" alt="Image 4"></a>
-                    <h3>Victoria Vasques</h3>
-                </div>
+            <div class="image-item">
+                <a href="History.html#Janice"><img src="Image/Janice Bryant Howroyd home.jpg" alt="Image 4"></a>
+                <h3>Janice Bryant Howroyd</h3>
+            </div>
+            <div class="image-item">
+                <a href="History.html#Vic"><img src="Image/Victoria Vasques home.jpg" alt="Image 4"></a>
+                <h3>Victoria Vasques</h3>
+            </div>
         </div>
     </section>
-
-
-
-
-
-
-
-
 </main>
 
 <footer>
@@ -101,7 +89,7 @@
 </footer>
 
 <script>
-        window.onload = function() {
+    window.onload = function() {
         window.scrollTo(0, 0);
     };
 </script>
@@ -120,6 +108,26 @@
                 revealElement.classList.add('revealed');
             }
         }
+    });
+</script>
+
+<script>
+    // JavaScript to handle dropdown toggle for mobile
+    document.addEventListener('DOMContentLoaded', function() {
+        var moreBtn = document.getElementById('more-btn');
+        var dropdown = document.querySelector('.more .dropdown');
+
+        moreBtn.addEventListener('click', function(event) {
+            event.preventDefault();
+            dropdown.classList.toggle('show');
+        });
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', function(event) {
+            if (!moreBtn.contains(event.target) && !dropdown.contains(event.target)) {
+                dropdown.classList.remove('show');
+            }
+        });
     });
 </script>
 
